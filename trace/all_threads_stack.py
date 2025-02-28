@@ -12,6 +12,6 @@ def main():
         threads = os.listdir(f"/proc/{pid}/task")
         for t in threads:
             print(f"TID: {t}")
-            s = get_stack(t)
+            s = utils.get_stack(t)
             print(s)
 main()
