@@ -44,7 +44,6 @@ def get_fdinfo(pid, fd):
 def fmt_fdinfo(fdinfo) -> str:
     flags_list = ""
     for k, v in get_fd_flags().items():
-        print(k,v)
         if not test_flags(int(fdinfo["flags"], 8), v):
             continue
         flags_list += k + " "
