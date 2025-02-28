@@ -44,11 +44,12 @@ def get_fdinfo(pid, fd):
 def fmt_fdinfo(fdinfo) -> str:
     flags_list = ""
     for k, v in get_fd_flags().items():
-        if not test_flags(int(fdinfo["flags"]), v):
+        print(k,v)
+        if not test_flags(int(fdinfo["flags"], 8), v):
             continue
         flags_list += k + " "
     return f"""Filename: {fdinfo["fname"]}
-    Flags: {flags_list}
+    Flags: {flags_list}({fdinfo["flags"]})
     """
 
 
