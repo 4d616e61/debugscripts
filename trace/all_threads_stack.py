@@ -1,12 +1,12 @@
 import os
 import sys
 import subprocess
-
+import utils
 
 def main():
     if len(sys.argv) < 2:
         return
-    pids = subprocess.check_output(["pgrep", sys.argv[1]]).decode().split()
+    pids = utils.pgrep(sys.argv[1])
     for pid in pids:
         print(f"PID: {pid}")
         threads = os.listdir(f"/proc/{pid}/task")
